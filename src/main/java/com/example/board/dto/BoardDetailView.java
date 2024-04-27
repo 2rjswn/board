@@ -11,7 +11,8 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 public class BoardDetailView {
-    private final String  memberName;
+    private final Long id;
+    private final String memberName;
     private final String title;
     private final String content;
     private final ZonedDateTime createAt;

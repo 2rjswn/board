@@ -28,4 +28,11 @@ public class BoardEntity {
     private ZonedDateTime createAt;
     @Column
     private ZonedDateTime updateAt;
+
+    public void ChangeTitleAndContent(String title, String content) {
+        this.title = title;
+        this.content = content;
+        this.updateAt = ZonedDateTime.now();
+
+    }
 }

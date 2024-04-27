@@ -1,5 +1,6 @@
 package com.example.board.controller;
 
+import com.example.board.dto.BoardDetailView;
 import com.example.board.dto.BoardView;
 import com.example.board.dto.CreateEditBoardRequest;
 import com.example.board.service.BoardService;
@@ -20,24 +21,24 @@ public class BoardController {
         return boardService.getAllBoards();
     }
     @PostMapping("/write")
-    public void writeBoard(CreateEditBoardRequest request) {
+    public void writeBoard(@RequestBody CreateEditBoardRequest request) {
         boardService.createBoard(request);
     }
     @GetMapping("/get/{boardId}")
-    public String getBoard() {
-        return "getBoard";
+    public BoardDetailView getBoard(@PathVariable Long boardId) {
+        return boardService.getBoard(boardId);
     }
-    @PostMapping("/review/{boardId}")
+    @PostMapping("/writeReview/{boardId}")
     public String reviewBoard() {
         return "reviewBoard";
     }
     @PostMapping("/edit/{boardId}")
-    public String editBoard() {
-        return "editBoard";
+    public void editBoard(@PathVariable Long boardId, @RequestBody CreateEditBoardRequest request) {
+        boardService.editBoard(request  ,boardId);
     }
     @DeleteMapping("/delete/{boardId}")
-    public String deleteBoard() {
-        return "deleteBoard";
+    public void deleteBoard(@PathVariable Long boardId) {
+        boardService.deleteBoard(boardId);
     }
 
 }

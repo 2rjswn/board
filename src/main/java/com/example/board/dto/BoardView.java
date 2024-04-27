@@ -10,6 +10,7 @@ import java.time.ZonedDateTime;
 @Builder
 @AllArgsConstructor
 public class BoardView {
+    private final Long id;
     private final String memberName;
     private final String title;
     private final String content;
