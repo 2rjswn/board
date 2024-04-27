@@ -1,9 +1,12 @@
 package com.example.board.controller;
 
+import com.example.board.dto.BoardView;
 import com.example.board.dto.CreateEditBoardRequest;
 import com.example.board.service.BoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/board")
@@ -13,8 +16,8 @@ public class BoardController {
     private final BoardService boardService;
 
     @GetMapping
-    public String getAllBoards() {
-        return "getAllBoards";
+    public List<BoardView> getAllBoards() {
+        return boardService.getAllBoards();
     }
     @PostMapping("/write")
     public void writeBoard(CreateEditBoardRequest request) {
