@@ -11,5 +11,4 @@ public class BoardView {
     private final String  memberName;
     private final String title;
     private final String content;
-    private final ZonedDateTime createAt;
 }
