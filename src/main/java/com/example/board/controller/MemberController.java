@@ -10,10 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/member")
 @RequiredArgsConstructor
 public class MemberController {
-    @PostMapping("/add")
-    public String addMember() {
-        return "addMember";
-    }
     @GetMapping("/info")
     public String allMember() {
         return "allMember";
@@ -22,11 +18,11 @@ public class MemberController {
     public String member() {
         return "member";
     }
-    @PostMapping("/edit/{memberId}")
-    public String editMemberId() {
-        return "editMemberId";
+    @PostMapping("/editName/{memberId}")
+    public String editMemberName() {
+        return "editMemberName";
     }
-    @PostMapping("/editpassword/{memberId}")
+    @PostMapping("/editPassword/{memberId}")
     public String editPasswordMember() {
         return "editPasswordMember";
     }
