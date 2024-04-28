@@ -26,7 +26,6 @@ public class ReviewService {
                 .build();
         reviewRepository.save(review);
     }
-
     @Transactional
     public void deleteReview(Long boardId) {
         ReviewEntity review = reviewRepository.findById(boardId).orElseThrow(() -> new RuntimeException("없다"));
