@@ -26,6 +26,4 @@ public class ReviewEntity {
     private String content;
     @Column
     private ZonedDateTime createAt;
-    @Column
-    private ZonedDateTime updateAt;
 }
