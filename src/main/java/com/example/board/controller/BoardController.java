@@ -7,6 +7,8 @@ import com.example.board.dto.CreateReviewRequest;
 import com.example.board.service.BoardService;
 import com.example.board.service.ReviewService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -20,8 +22,8 @@ public class BoardController {
     private final ReviewService reviewService;
 
     @GetMapping
-    public List<BoardView> getAllBoards() {
-        return boardService.getAllBoards();
+    public ResponseEntity<List<BoardView>> getAllBoards() {
+        return ResponseEntity.status(HttpStatus.OK).body(boardService.getAllBoards());
     }
     @PostMapping("/write")
     public void writeBoard(@RequestBody CreateEditBoardRequest request) {
