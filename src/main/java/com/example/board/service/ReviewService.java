@@ -1,5 +1,6 @@
 package com.example.board.service;
 
+import com.example.board.dto.CreateReviewRequest;
 import com.example.board.entity.ReviewEntity;
 import com.example.board.repository.BoardRepository;
 import com.example.board.repository.ReviewRepository;
@@ -31,4 +32,5 @@ public class ReviewService {
         ReviewEntity review = reviewRepository.findById(boardId).orElseThrow(() -> new RuntimeException("없다"));
         reviewRepository.delete(review);
     }
+
 }

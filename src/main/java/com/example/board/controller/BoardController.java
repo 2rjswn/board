@@ -4,6 +4,8 @@ import com.example.board.dto.BoardDetailView;
 import com.example.board.dto.BoardView;
 import com.example.board.dto.CreateEditBoardRequest;
 import com.example.board.dto.CreateReviewRequest;
+import com.example.board.entity.BoardEntity;
+import com.example.board.entity.ReviewEntity;
 import com.example.board.service.BoardService;
 import com.example.board.service.ReviewService;
 import lombok.RequiredArgsConstructor;
@@ -26,16 +28,17 @@ public class BoardController {
         return ResponseEntity.status(HttpStatus.OK).body(boardService.getAllBoards());
     }
     @PostMapping("/write")
-    public void writeBoard(@RequestBody CreateEditBoardRequest request) {
-        boardService.createBoard(request);
+    public ResponseEntity<BoardEntity> createBoard(@RequestBody CreateEditBoardRequest request) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(boardService.createBoard(request));
     }
     @GetMapping("/get/{boardId}")
-    public BoardDetailView getBoard(@PathVariable Long boardId) {
-        return boardService.getBoard(boardId);
+    public ResponseEntity<BoardDetailView> getBoard(@PathVariable Long boardId) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(boardService.getBoard(boardId));
     }
     @PostMapping("/review")
-    public void reviewBoard(@RequestBody CreateReviewRequest request) {
+    public ResponseEntity<Void> createReview(@RequestBody CreateReviewRequest request) {
         reviewService.createReview(request.getBoardId(), request.getContent(), request.getMemberName());
+        return ResponseEntity.status(HttpStatus.CREATED).build();
     }
 
     @DeleteMapping("/review/{reviewId}")
