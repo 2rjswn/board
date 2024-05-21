@@ -40,7 +40,6 @@ public class BoardController {
         reviewService.createReview(request.getBoardId(), request.getContent(), request.getMemberName());
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
-
     @DeleteMapping("/review/{reviewId}")
     public void deleteReview(@PathVariable Long boardId) {
         reviewService.deleteReview(boardId);
