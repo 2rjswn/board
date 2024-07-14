@@ -1,29 +1,27 @@
 package com.example.board.controller;
 
+import com.example.board.dto.request.UserJoinRequest;
+import com.example.board.dto.request.UserLoginRequest;
+import com.example.board.dto.response.UserLoginResponse;
+import com.example.board.service.AuthService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/member")
 @RequiredArgsConstructor
 public class MemberController {
-    @GetMapping("/info")
-    public String allMember() {
-        return "allMember";
+    private final AuthService authService;
+    @PostMapping("/join")
+    public ResponseEntity<Void> joinMember(@RequestBody @Valid UserJoinRequest userJoinRequest){
+        authService.joinMember(userJoinRequest);
+        return ResponseEntity.ok().build();
     }
-    @GetMapping("/info/{memberId}")
-    public String member() {
-        return "member";
-    }
-    @PostMapping("/editName/{memberId}")
-    public String editMemberName() {
-        return "editMemberName";
-    }
-    @PostMapping("/editPassword/{memberId}")
-    public String editPasswordMember() {
-        return "editPasswordMember";
+
+    @PostMapping("/login")
+    public ResponseEntity<UserLoginResponse> loginMember(@RequestBody @Valid UserLoginRequest userLoginRequest){
+        return ResponseEntity.ok(authService.loginMember(userLoginRequest));
     }
 }

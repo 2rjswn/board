@@ -1,11 +1,10 @@
 package com.example.board.controller;
 
-import com.example.board.dto.BoardDetailView;
-import com.example.board.dto.BoardView;
-import com.example.board.dto.CreateEditBoardRequest;
-import com.example.board.dto.CreateReviewRequest;
+import com.example.board.dto.response.BoardDetailView;
+import com.example.board.dto.response.BoardView;
+import com.example.board.dto.request.CreateEditBoardRequest;
+import com.example.board.dto.request.CreateReviewRequest;
 import com.example.board.entity.BoardEntity;
-import com.example.board.entity.ReviewEntity;
 import com.example.board.service.BoardService;
 import com.example.board.service.ReviewService;
 import lombok.RequiredArgsConstructor;

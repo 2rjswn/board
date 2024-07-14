@@ -1,8 +1,8 @@
 package com.example.board.service;
 
-import com.example.board.dto.BoardDetailView;
-import com.example.board.dto.BoardView;
-import com.example.board.dto.CreateEditBoardRequest;
+import com.example.board.dto.response.BoardDetailView;
+import com.example.board.dto.response.BoardView;
+import com.example.board.dto.request.CreateEditBoardRequest;
 import com.example.board.entity.BoardEntity;
 import com.example.board.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;

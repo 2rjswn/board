@@ -1,21 +1,18 @@
-package com.example.board.dto;
+package com.example.board.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
 import java.time.ZonedDateTime;
-import java.util.List;
 
 @Getter
 @Builder
 @AllArgsConstructor
-public class BoardDetailView {
-    private final Long id;
+public class CreateEditBoardRequest {
     private final String memberName;
     private final String title;
     private final String content;
     private final ZonedDateTime createAt;
     private final ZonedDateTime updateAt;
-    private final List<CreateReviewRequest> reviews;
 }
